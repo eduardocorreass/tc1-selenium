@@ -39,4 +39,20 @@ public class ListSoulTest {
 
         assertTrue(listPage.verifyIfListIsEmpty());
     }
+
+    @Test
+    @DisplayName("List Should Not Be Empty")
+    public void listShouldNotBeEmpty() {
+        registerPage.open();
+
+        registerPage.setName("Fabio");
+        registerPage.setDateOfDeath("2023-11-15");
+        registerPage.setDateBirthday("2023-01-15");
+        registerPage.setCauseOfDeath("Ataque Cardíaco");
+        registerPage.clickOnCreateButton();
+
+        listPage.open();
+
+        assertFalse(listPage.verifyIfListIsEmpty());
+    }
 }
