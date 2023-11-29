@@ -55,4 +55,24 @@ public class ListSoulTest {
 
         assertFalse(listPage.verifyIfListIsEmpty());
     }
+
+    @Test
+    @DisplayName("Should Release Soul")
+    public void ShouldReleaseSoul() {
+        registerPage.open();
+
+        registerPage.setName("Fabio");
+        registerPage.setDateOfDeath("2023-11-15");
+        registerPage.setDateBirthday("2023-01-15");
+        registerPage.setCauseOfDeath("Ataque Cardíaco");
+        registerPage.clickOnCreateButton();
+
+        listPage.open();
+
+        listPage.clickOnDeleteButton();
+
+        listPage.clickOnConfirmButton();
+
+        assertTrue(listPage.verifyIfListIsEmpty());
+    }
 }
