@@ -91,7 +91,7 @@ public class ListSoulTest {
 
         listPage.clickOnDeleteButton();
 
-        listPage.clickOnDontReleaseButoon();
+        listPage.clickOnDontReleaseButton();
 
         assertFalse(listPage.verifyIfListIsEmpty());
     }
