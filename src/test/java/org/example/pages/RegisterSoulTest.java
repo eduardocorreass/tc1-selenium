@@ -59,4 +59,20 @@ public class RegisterSoulTest {
 
         assertTrue(registerPage.verifySuccess(".swal2-popup.swal2-modal.swal2-icon-success.swal2-show"));
     }
+
+    @Test
+    @DisplayName("Should not Create Soul without name")
+    public void shouldNotCreateSoulWithoutName() {
+        registerPage.open();
+        registerPage.clickOnCreateButton();
+
+        registerPage.setDateOfDeath("2023-11-15");
+        registerPage.setDateBirthday("2023-01-15");
+        registerPage.setCauseOfDeath("Ataque Cardíaco");
+        registerPage.clickOnCreateButton();
+
+        new WebDriverWait(driver, Duration.ofSeconds(5));
+
+        assertFalse(registerPage.verifySuccess(".swal2-popup.swal2-modal.swal2-icon-success.swal2-show"));
+    }
 }
