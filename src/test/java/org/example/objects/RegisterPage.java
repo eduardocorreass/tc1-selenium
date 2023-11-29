@@ -1,9 +1,7 @@
 package org.example.objects;
 
 import com.github.javafaker.Faker;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 public class RegisterPage {
     private final WebDriver driver;
@@ -51,5 +49,14 @@ public class RegisterPage {
         setDateBirthday(faker.date().toString());
         setCauseOfDeath(faker.bothify("Ataque Cardíaco"));
         clickOnCreateButton();
+    }
+
+    public boolean verifySuccess(String id){
+        try {
+            driver.findElement(By.cssSelector(id));
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
 }
