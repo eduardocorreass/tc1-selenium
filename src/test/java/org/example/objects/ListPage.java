@@ -19,6 +19,6 @@ public class ListPage {
     }
 
     public void clickOnDeleteButton() {
-        driver.findElement(By.cssSelector("btn.btn-danger.delete-soul")).click();
+        driver.findElement(By.cssSelector(".btn.btn-danger.delete-soul")).click();
     }
 }
