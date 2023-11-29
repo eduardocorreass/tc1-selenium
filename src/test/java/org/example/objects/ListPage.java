@@ -17,4 +17,8 @@ public class ListPage {
         String path = String.format("//tbody/tr[%d]/td", 1);
         return driver.findElements(By.xpath(path)).isEmpty();
     }
+
+    public void clickOnDeleteButton() {
+        driver.findElement(By.cssSelector("btn.btn-danger.delete-soul")).click();
+    }
 }
