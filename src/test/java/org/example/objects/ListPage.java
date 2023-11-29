@@ -21,4 +21,8 @@ public class ListPage {
     public void clickOnDeleteButton() {
         driver.findElement(By.cssSelector(".btn.btn-danger.delete-soul")).click();
     }
+
+    public void clickOnConfirmButton() {
+        driver.findElement(By.cssSelector(".swal2-confirm.swal2-styled")).click();
+    }
 }
