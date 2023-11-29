@@ -3,22 +3,26 @@ package org.example.pages;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.example.objects.RegisterPage;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+import static org.junit.Assert.*;
 
 public class RegisterSoulTest {
     private WebDriver driver;
-
     private RegisterPage registerPage;
 
     @BeforeAll
     public static void setupWebDriver() {
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.firefoxdriver().setup();
     }
 
     @BeforeEach
     public void setUp() {
-        driver = new ChromeDriver();
+        driver = new FirefoxDriver();
 
         registerPage = new RegisterPage(driver);
     }
@@ -33,5 +37,9 @@ public class RegisterSoulTest {
     public void createSoulWithoutAnyInformation() {
         registerPage.open();
         registerPage.clickOnCreateButton();
+
+        new WebDriverWait(driver, Duration.ofSeconds(5));
+
+        assertFalse(registerPage.verifySuccess(".swal2-popup.swal2-modal.swal2-icon-success.swal2-show"));
     }
 }
