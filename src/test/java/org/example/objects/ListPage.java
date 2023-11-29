@@ -25,4 +25,8 @@ public class ListPage {
     public void clickOnConfirmButton() {
         driver.findElement(By.cssSelector(".swal2-confirm.swal2-styled")).click();
     }
+
+    public void clickOnDontReleaseButton() {
+        driver.findElement(By.cssSelector(".swal2-deny.swal2-styled")).click();
+    }
 }
